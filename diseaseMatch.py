@@ -2,6 +2,7 @@ from matchChecker import check_paraphrase
 from matchChecker import calculate_similarity
 from diseaseAranger import getDiseaseData
 from diseaseAranger import DiseaseData
+import time
 
 def getPercentage(diseases, word):
     access_key = "c5dd01ba-7adb-4ae6-ae1e-3f494a9c29c6" 
@@ -12,6 +13,7 @@ def getPercentage(diseases, word):
         else:
             sum = 0
             for i in range(len(disease.symptom)):
+                time.sleep(0.1)
                 res = check_paraphrase(word, disease.symptom[i], access_key)
                 if (res):
                     disease.symptomMatch[i] = calculate_similarity(word, disease.symptom[i])
