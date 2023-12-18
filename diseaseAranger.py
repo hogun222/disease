@@ -90,7 +90,4 @@ def getDiseaseData():
     print(len(symptomList))
 
 
-diseases = getDiseaseData()
-print(diseases[0].name, diseases[0].category, diseases[0].type, diseases[0].info, diseases[0].cause, diseases[0].treat, diseases[0].prevent)
-
 
