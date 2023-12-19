@@ -42,9 +42,10 @@ def pickThree(diseases):
             numList[2] = i
     return numList
 
+'''
 diseases = getDiseaseData()
 diseases = diseases[:10]
-'''
+
 print(diseases[0].name, diseases[0].symptomAve)
 word = input("단어 입력하세요 : ")
 diseases = getPercentage(diseases, word)
