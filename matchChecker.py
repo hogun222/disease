@@ -81,6 +81,8 @@ class TextSimilarityChecker:
         similarity = cosine_similarity(embedding1, embedding2)
         return similarity[0][0]
 
+
+'''
 similarity_checker = TextSimilarityChecker()
 # 예제 문장
 sentence1 = "안녕하세요, 한국어 언어 모델 테스트입니다."
@@ -104,3 +106,4 @@ if is_paraphrase:
     print(f"TF-IDF 유사도: {similarity_tfidf:.4f}")
     print(f"KoELECTRA 유사도: {similarity_koelectra:.4f}")
     print(f"최종 유사도: {(similarity_sentence_transformers+similarity_tfidf+similarity_koelectra)/3:.4f}")
+    '''
