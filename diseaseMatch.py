@@ -32,8 +32,9 @@ def getPercentage(diseases, word):
     return diseases
 
 def pickThree(diseases):
-    numList = [0, 0, 0]
-    for i in range(len(diseases)):
+    diseases.append(DiseaseData("", "", "", "", [], [], [], []))
+    numList = [len(diseases) - 1, len(diseases) - 1, len(diseases) - 1]
+    for i in range(len(diseases) - 1):
         if (diseases[i].symptomAve > diseases[numList[0]].symptomAve):
             numList[0] = i
         elif (diseases[i].symptomAve > diseases[numList[1]].symptomAve):
