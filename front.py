@@ -61,17 +61,6 @@ def make_result_frame():
     details = []
 
     sizeList = [48, 40, 34]
-    xPos = 56
-    yPos = 2
-
-    for i in range(3):
-        disease_title.append(tkinter.Label(result_frame, text=a.diseases[i].name, font=tkinter.font.Font(family="빙그레체Ⅱ", size=sizeList[i], weight='bold')))
-        percentage.append(tkinter.Label(result_frame, text=(str(int(a.diseases[i].symptomAve)) + '%'), font=tkinter.font.Font(family="빙그레체Ⅱ", size=26, weight='bold')))
-        disease_title[i].place(x=xPos, y=yPos)
-        xPos += sizeList[i] * len(a.diseases[i].name) * 1.3
-        yPos += 10
-        percentage[i].place(x=xPos, y=34)
-        xPos += 26 * len(str(int(a.diseases[i].symptomAve)) + '%') * 1.5
 
     xPos = 67
     yPos = 157
@@ -124,8 +113,6 @@ def make_result_frame():
     xPos = 916
     yPos = 92
 
-    
-
     select_label = tkinter.Label(result_frame, text="사용자에게 나타난 증상", font=tkinter.font.Font(family="빙그레체Ⅱ", size=23, weight='bold'))
     select_label.place(x=910, y=51)
     for i in range(3):
@@ -137,8 +124,11 @@ def make_result_frame():
         for j in range(len(a.diseases[i].symptom)):
             if (a.diseases[i].symptomMatch[j] != 0):
                 chosenSymptom += a.diseases[i].symptom[j] + ' '
+                chosenSymptom += str(int(a.diseases[i].symptomMatch[j])) + '%' + ' '
+
             else:
                 unchosenSymptom += a.diseases[i].symptom[j] + ' '
+                unchosenSymptom += str(int(a.diseases[i].symptomMatch[j])) + '%' + ' '
 
         symptoms.append(tkinter.Text(result_frame, 
                                       width=304,
@@ -155,6 +145,21 @@ def make_result_frame():
         symptoms[i].place(x=xPos, y=yPos, width=304, height=187)
         yPos += 212
 
+    xPos = 56
+    yPos = 250
+
+    percentage.append(tkinter.Label(result_frame, text=(str(int(a.diseases[0].symptomAve)) + '%'), font=tkinter.font.Font(family="빙그레체Ⅱ", size=20, weight='bold')))
+    percentage[0].place(x=85, y=240)
+    percentage.append(tkinter.Label(result_frame, text=(str(int(a.diseases[1].symptomAve)) + '%'), font=tkinter.font.Font(family="빙그레체Ⅱ", size=20, weight='bold')))
+    percentage[1].place(x=85, y=452)
+    percentage.append(tkinter.Label(result_frame, text=(str(int(a.diseases[2].symptomAve)) + '%'), font=tkinter.font.Font(family="빙그레체Ⅱ", size=20, weight='bold')))
+    percentage[2].place(x=85, y=664)
+
+
+    def exit_window():
+        window.destroy()
+    exit_button = tkinter.Button(result_frame, text="X", font=tkinter.font.Font(family="빙그레체Ⅱ", size=20, weight='bold'), command=exit_window)
+    exit_button.place(x=1222, y=4, width=40, height=40)
 
 title_frame.pack()
 
